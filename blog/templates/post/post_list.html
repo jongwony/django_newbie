@@ -1,0 +1,19 @@
+{% extends 'layout/base.html' %}
+
+{% block head_title %}Posts{% endblock %}
+{% block title %}Post{% endblock %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                <small>{{ post.published_date|date:'Y년 m월 d일 H:i' }}</small>
+            </div>
+            <h1>
+                <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+            </h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+            <small><a href="{% url 'post_detail' pk=post.pk %}">댓글 {{ post.comments.count }}</a></small>
+        </div>
+    {% endfor %}
+{% endblock %}
