@@ -15,8 +15,7 @@ from .forms import FileForm
 # Create your views here.
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    posts_element = dir(posts[0])
-    return render(request, 'post/post_list.html', {'posts': posts, 'objects': posts_element})
+    return render(request, 'post/post_list.html', {'posts': posts})
 
 
 def post_detail(request, pk):

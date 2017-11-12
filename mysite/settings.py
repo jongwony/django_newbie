@@ -28,10 +28,10 @@ DEBUG = True
 # AWS Dynamic ip
 try:
     from urllib.request import urlopen
-    host = urlopen('http://169.254.169.254/latest/meta-data/public-ipv4').read().decode()
+    host = urlopen('http://169.254.169.254/latest/meta-data/public-ipv4', timeout=5).read().decode()
 except OSError:
     import json
-    host = json.loads(urlopen('http://httpbin.org/ip').read().decode())['origin']
+    host = json.loads(urlopen('http://httpbin.org/ip', timeout=5).read().decode())['origin']
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', host]
 
