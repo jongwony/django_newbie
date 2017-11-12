@@ -1,4 +1,5 @@
 {% extends 'layout/base.html' %}
+{% load markdownify %}
 
 {% block head_title %}Posts{% endblock %}
 {% block title %}Post{% endblock %}
@@ -12,7 +13,8 @@
             <h1>
                 <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
             </h1>
-            <p>{{ post.text|linebreaksbr }}</p>
+            {{ post.text|markdown|striptags|truncatechars_html:120 }}
+            <br>
             <small><a href="{% url 'post_detail' pk=post.pk %}">댓글 {{ post.comments.count }}</a></small>
         </div>
     {% endfor %}
