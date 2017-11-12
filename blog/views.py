@@ -6,8 +6,10 @@ from django.utils import timezone
 
 from .models import Post
 from .models import Comment
+from .models import Upload
 from .forms import PostForm
 from .forms import CommentForm
+from .forms import FileForm
 
 
 # Create your views here.
@@ -37,7 +39,10 @@ def post_detail(request, pk):
 def post_new(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
+        file_form = FileForm(request.POST, request.FILES)
         if form.is_valid():
+            if file_form.is_valid():
+                file_form.save()
             post = form.save(commit=False)
             post.author = request.user
             post.published_date = timezone.now()
@@ -45,8 +50,9 @@ def post_new(request):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
+        file_form = FileForm()
 
-    return render(request, 'post/post_edit.html', {'form': form})
+    return render(request, 'post/post_edit.html', {'form': form, 'file_form': file_form})
 
 
 @login_required
@@ -55,7 +61,10 @@ def post_edit(request, pk):
 
     if request.method == 'POST':
         form = PostForm(request.POST, instance=post)
+        file_form = FileForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
+            if file_form.is_valid():
+                file_form.save()
             post = form.save(commit=False)
             post.author = request.user
             post.published_date = timezone.now()
@@ -63,8 +72,9 @@ def post_edit(request, pk):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
+        file_form = FileForm(instance=post)
 
-    return render(request, 'post/post_edit.html', {'form': form})
+    return render(request, 'post/post_edit.html', {'form': form, 'file_form': file_form})
 
 
 @login_required

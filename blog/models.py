@@ -31,3 +31,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+
+
+class Upload(models.Model):
+    file = models.FileField(upload_to='%Y/%m/%d')
