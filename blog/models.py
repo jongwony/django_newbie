@@ -34,4 +34,4 @@ class Comment(models.Model):
 
 
 class Upload(models.Model):
-    file = models.FileField(upload_to='%Y/%m/%d')
+    file = models.FileField(upload_to='%Y/%m/%d', blank=True, null=True)
