@@ -25,7 +25,15 @@ SECRET_KEY = '$1n_j_pj6_)8=te%^u^-#^ot3e5a@6h$q!0q+(th0l3c-njm3e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+# AWS Dynamic ip
+try:
+    from urllib.request import urlopen
+    host = urlopen('http://169.254.169.254/latest/meta-data/public-ipv4').read().decode()
+except OSError:
+    import json
+    host = json.loads(urlopen('http://httpbin.org/ip').read().decode())['origin']
+
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', host]
 
 
 # Application definition
