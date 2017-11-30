@@ -1,0 +1,119 @@
+@import base
+
+
+$sup_margin: 1.2em 0 0 0
+$sub_margin: 0 0 1.2em 0
+
+
+// header
+.header-content
+  width: 100%
+  background: url('header.jpg') center
+  background-size: cover
+  position: relative
+  text-align: center
+  padding: 100px 15px 100px
+
+  .header-content-inner
+    h1,
+    h2
+      font-weight: 700
+      margin-top: 0
+      margin-bottom: 0
+      text-shadow: 1px 1px 2px black, 0 0 12px #FAF5E1, 0 0 2px darkblue
+
+    hr
+      margin: 30px auto
+
+    p
+      font-weight: 300
+      color: rgba(white, .7)
+      font-size: 16px
+      margin-bottom: 50px
+
+    a
+      color: white
+
+    a:hover
+      color: #7fdbff
+      text-decoration: none
+
+
+.date
+  display: inline-block
+  color: #9eabb3
+  margin: $sup_margin
+
+
+// list
+.container
+  margin: 60px
+
+  h1
+    margin: 0 0 .6em 0
+
+  a
+    color: #F05F40
+
+  a:hover
+    color: #7fdbff
+    text-decoration: none
+
+  .excerpt
+    font-size: 80%
+    line-height: 1.6em
+    color: #9eabb3
+
+
+// post (markdown)
+.post
+  position: relative
+  width: 100%
+  margin: 0
+  padding-bottom: 60px
+
+  @media screen and (min-width: 880px)
+    margin: 0 80px
+    max-width: 800px
+
+  p
+    margin: 1.2em 0
+
+    img
+      width: 100%
+      height: auto
+      margin: auto auto 1.2em
+
+  h1,
+  h2,
+  h3
+    margin: $sub_margin
+    font-weight: 600
+
+  pre
+    font-size: 0.8em
+    font-family: Monaco, Menlo, Consolas, monospace
+    background-color: #eeeeee
+    padding: 1.2em
+    line-height: 1.8em
+
+
+  table
+    margin: $sup_margin
+
+    tr
+      border-bottom: 1px solid #9eabb3
+
+      th
+        background-color: #efe0e0
+        padding: 15px
+
+      td
+        padding: 15px
+
+
+// copyright
+.copyright
+  text-align: center
+  margin: 16px auto
+  color: #9eabb3

@@ -6,7 +6,9 @@
 
 {% block content %}
     {# Post #}
-    <div class="post">
+    <div class="col-md-12">
+        <div class="post">
+
         {% if post.published_date %}
             <div class="date">
                 <small>{{ post.published_date|date:'Y년 m월 d일 H:i' }}</small>
@@ -30,9 +32,9 @@
         {% endcomment %}
 
         <h1>{{ post.title }}</h1>
-
         {{ post.text|safe|markdown|linebreaksbr }}
 
+        </div>
     </div>
 
     <hr>

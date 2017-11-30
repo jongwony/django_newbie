@@ -2,20 +2,22 @@
 {% load markdownify %}
 
 {% block head_title %}Posts{% endblock %}
-{% block title %}Post{% endblock %}
+{% block title %}Tech Notes{% endblock %}
 
 {% block content %}
     {% for post in posts %}
-        <div class="post">
+        <div class="container">
             <div class="date">
                 <small>{{ post.published_date|date:'Y년 m월 d일 H:i' }}</small>
             </div>
             <h1>
                 <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
             </h1>
-            {{ post.text|markdown|striptags|truncatechars_html:120 }}
-            <br>
+            <section class="excerpt">
+                {{ post.text|striptags|truncatechars_html:120 }}
+            </section>
             <small><a href="{% url 'post_detail' pk=post.pk %}">댓글 {{ post.comments.count }}</a></small>
         </div>
+        <hr>
     {% endfor %}
 {% endblock %}
