@@ -9,18 +9,18 @@
 <body>
     <div class="header-content">
         {% if user.is_authenticated %}
-            <a href="{% url 'post_new' %}" class="top-menu">
-                <span class="glyphicon glyphicon-plus"></span>
+            <a href="{% url 'post_new' %}" class="btn top-menu">
+                New
             </a>
-            <a href="{% url 'post_draft_list' %}" class="top-menu">
-                <span class="glyphicon glyphicon-edit"></span>
+            <a href="{% url 'post_draft_list' %}" class="btn top-menu">
+                Drafts
             </a>
-            <a href="{% url 'logout' %}" class="top-menu">
-                <span class="glyphicon glyphicon-log-out"></span>
+            <a href="{% url 'logout' %}" class="btn top-menu">
+                Logout
             </a>
         {% else %}
-            <a href="{% url 'login' %}" class="top-menu">
-                <span class="glyphicon glyphicon-log-in"></span>
+            <a href="{% url 'login' %}" class="btn top-menu">
+                Login
             </a>
         {% endif %}
 

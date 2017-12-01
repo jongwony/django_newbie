@@ -1,11 +1,12 @@
 # Custom filter tags
 # https://docs.djangoproject.com/en/1.11/howto/custom-template-tags/
 from django import template
+from django.utils.encoding import force_text
 
 import mistune
 from pygments import highlight
-from pygments.lexers import get_lexer_by_name
 from pygments.formatters import html
+from pygments.lexers import get_lexer_by_name
 
 register = template.Library()
 
@@ -20,8 +21,8 @@ class HighlightRenderer(mistune.Renderer):
         return highlight(code, lexer, formatter)
 
 
-@register.filter(is_safe=True)
+@register.filter
 def markdown(value):
     renderer = HighlightRenderer()
     _markdown = mistune.Markdown(renderer=renderer)
-    return _markdown(value)
+    return force_text(_markdown(value)).replace(r'<script>', r'&lt;script&gt;').replace(r'</script>', r'&lt;/script&gt;')

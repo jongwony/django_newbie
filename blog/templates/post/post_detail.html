@@ -9,60 +9,68 @@
     <div class="col-md-12">
         <div class="post">
 
-        {% if post.published_date %}
-            <div class="date">
-                <small>{{ post.published_date|date:'Y년 m월 d일 H:i' }}</small>
-            </div>
-        {% else %}
-            <a href="{% url 'post_publish' pk=post.pk %}" class="btn btn-default">Publish</a>
-        {% endif %}
+            {% if post.published_date %}
+                <div class="date">
+                    <small>{{ post.published_date|date:'Y년 m월 d일 H:i' }}</small>
+                </div>
+            {% else %}
+                <a href="{% url 'post_publish' pk=post.pk %}" class="btn btn-sm">Publish</a>
+            {% endif %}
 
-        {% if user.is_authenticated %}
-            <a href="{% url 'post_edit' pk=post.pk %}" class="btn btn-default">
-                <span class="glyphicon glyphicon-pencil"></span>
-            </a>
-            <a href="{% url 'post_remove' pk=post.pk %}" class="btn btn-default">
-                <span class="glyphicon glyphicon-remove"></span>
-            </a>
-        {% endif %}
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_edit' pk=post.pk %}" class="btn btn-sm">
+                    <span class="glyphicon">&#x270f;</span>
+                </a>
+                <a href="{% url 'post_remove' pk=post.pk %}" class="btn btn-sm">
+                    <span class="glyphicon">&#9003;</span>
+                </a>
+            {% endif %}
 
 
-        {% comment on %}
+            {% comment on %}
             수정 시 권한 필요
         {% endcomment %}
 
-        <h1>{{ post.title }}</h1>
-        {{ post.text|safe|markdown|linebreaksbr }}
+            <h1>{{ post.title }}</h1>
+            {{ post.text|markdown|safe }}
 
         </div>
+
+        <hr>
+
+        {# Comment #}
+        <div class="comment_form">
+            <form method="POST" class="post-form" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <p><button type="submit" class="save btn btn-secondary">댓글 작성하기</button></p>
+            </form>
+        </div>
+
+        {% for comment in post.comments.all %}
+            {% if user.is_authenticated or comment.approved_comment %}
+                <div class="comment">
+                    <div class="date">
+                        <strong>{{ comment.author }}</strong>
+                        <small>{{ comment.created_date }}</small>
+                        {% if not comment.approved_comment %}
+                            <a class="btn btn-sm" href="{% url 'comment_remove' pk=comment.pk %}"><span
+                                    class="glyphicon">&#9003;</span></a>
+                            <a class="btn btn-sm" href="{% url 'comment_approve' pk=comment.pk %}"><span
+                                    class="glyphicon">&#10004;</span></a>
+                        {% endif %}
+                    </div>
+
+                    <div>{{ comment.text|markdown|safe }}</div>
+                </div>
+            {% endif %}
+        {% empty %}
+            <div class="comment">
+                <p>댓글을 달아주세요!</p>
+            </div>
+        {% endfor %}
     </div>
 
     <hr>
 
-    {# Comment #}
-    <div class="comment_form">
-        <form method="POST" class="post-form" action="">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="save btn btn-default">댓글 작성하기</button>
-        </form>
-    </div>
-
-    {% for comment in post.comments.all %}
-        {% if user.is_authenticated or comment.approved_comment %}
-            <div class="comment">
-                <div class="date">
-                    <small>{{ comment.created_date }}</small>
-                    {% if not comment.approved_comment %}
-                        <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-                        <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
-                    {% endif %}
-                </div>
-                <strong>{{ comment.author }}</strong>
-                <p>{{ comment.text|linebreaks }}</p>
-            </div>
-        {% endif %}
-    {% empty %}
-        <p>댓글을 달아주세요!</p>
-    {% endfor %}
 {% endblock %}
