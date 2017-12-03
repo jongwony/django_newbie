@@ -108,17 +108,17 @@ nav .navbar-brand {
   width: 100%;
   margin: 0; }
   .post_layout pre, .post pre, .comment pre,
-  .comment_form pre, .post_form pre,
-  .post_layout code,
-  .post code,
-  .comment code,
-  .comment_form code,
-  .post_form code {
+  .comment_form pre, .post_form pre {
     font-size: 0.8em;
     font-family: Monaco, Menlo, Consolas, monospace;
     background-color: #eeeeee;
     padding: 1.2em;
     line-height: 1.8em; }
+  .post_layout code, .post code, .comment code,
+  .comment_form code, .post_form code {
+    font-size: 0.8em;
+    font-family: Monaco, Menlo, Consolas, monospace;
+    background-color: #eeeeee; }
   @media screen and (min-width: 880px) {
     .post_layout, .post, .comment,
     .comment_form, .post_form {
