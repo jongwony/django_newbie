@@ -7,6 +7,7 @@ ol {
   margin: 0;
   padding: 0;
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  line-height: 2.4em;
   list-style-image: url("images/sqorange.gif"); }
 
 a {
@@ -132,13 +133,15 @@ nav .navbar-brand {
   .post h3 {
     margin: 0 0 24px 0;
     font-weight: 600; }
-  .post table tr {
-    border-bottom: 1px solid #9eabb3; }
-    .post table tr th {
-      background-color: #efe0e0;
-      padding: 1.2em; }
-    .post table tr td {
-      padding: 1.2em; }
+  .post table {
+    margin: 0 0 24px 0; }
+    .post table tr {
+      border-bottom: 1px solid #9eabb3; }
+      .post table tr th {
+        background-color: #efe0e0;
+        padding: 1.2em; }
+      .post table tr td {
+        padding: 1.2em; }
 
 .comment,
 .comment_form {
