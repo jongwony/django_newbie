@@ -25,6 +25,14 @@ hr {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+iframe {
+  width: 100%; }
+
+.gitribbon {
+  position: absolute;
+  right: 0;
+  border: 0; }
+
 nav .navbar-brand {
   color: #F05F40;
   font-weight: 700; }
