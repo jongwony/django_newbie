@@ -33,14 +33,15 @@ nav .navbar-brand {
 
 .header-content {
   width: 100%;
-  background: url("images/header.jpg") center;
-  background-size: cover;
+  background: #263037 url("images/main.gif") no-repeat;
   position: relative;
   text-align: center;
   padding: 100px 15px 100px; }
   .header-content .subtitle {
     margin: 24px 0 0 0;
-    font-family: Monaco, Menlo, Consolas, monospace; }
+    font-family: Monaco, Menlo, Consolas, monospace;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7); }
   .header-content .header-content-inner h1 {
     font-size: 3em;
     font-weight: 700;
@@ -51,11 +52,6 @@ nav .navbar-brand {
     color: white; }
     .header-content .header-content-inner a:hover {
       color: #7fdbff; }
-  .header-content .header-content-inner p {
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 16px;
-    margin-bottom: 50px; }
 
 .date {
   display: inline-block;
