@@ -108,7 +108,12 @@ nav .navbar-brand {
   width: 100%;
   margin: 0; }
   .post_layout pre, .post pre, .comment pre,
-  .comment_form pre, .post_form pre {
+  .comment_form pre, .post_form pre,
+  .post_layout code,
+  .post code,
+  .comment code,
+  .comment_form code,
+  .post_form code {
     font-size: 0.8em;
     font-family: Monaco, Menlo, Consolas, monospace;
     background-color: #eeeeee;
@@ -221,4 +226,4 @@ nav .navbar-brand {
   margin: 16px auto;
   color: #9eabb3; }
 
-/*# sourceMappingURL=custom.css.map */
+/*# sourceMappingURL=custom_.css.map */
