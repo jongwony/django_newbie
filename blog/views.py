@@ -34,6 +34,10 @@ def post_detail(request, pk):
     return render(request, 'post/post_detail.html', {'post': post, 'form': form})
 
 
+def profile(request):
+    return render(request, 'layout/profile.html')
+
+
 @login_required
 def post_new(request):
     if request.method == 'POST':

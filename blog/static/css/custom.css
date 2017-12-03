@@ -6,7 +6,14 @@ ol {
   box-sizing: content-box;
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif; }
+  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  list-style-image: url("images/sqorange.gif"); }
+
+a {
+  color: #F05F40; }
+  a:hover {
+    text-decoration: none;
+    color: #7fdbff; }
 
 hr {
   margin: 24px 0 0 0;
@@ -18,24 +25,32 @@ hr {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+nav .navbar-brand {
+  color: #F05F40;
+  font-weight: 700; }
+  nav .navbar-brand:hover, nav .navbar-brand:focus {
+    color: #eb3812; }
+
 .header-content {
   width: 100%;
-  background: url("header.jpg") center;
+  background: url("images/header.jpg") center;
   background-size: cover;
   position: relative;
   text-align: center;
   padding: 100px 15px 100px; }
-  .header-content a {
-    color: white; }
-  .header-content a:hover {
-    color: #7fdbff;
-    text-decoration: none; }
-  .header-content .header-content-inner h1,
-  .header-content .header-content-inner h2 {
+  .header-content .subtitle {
+    margin: 24px 0 0 0;
+    font-family: Monaco, Menlo, Consolas, monospace; }
+  .header-content .header-content-inner h1 {
+    font-size: 3em;
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 0;
     text-shadow: 1px 1px 2px black, 0 0 12px #FAF5E1, 0 0 2px darkblue; }
+  .header-content .header-content-inner a {
+    color: white; }
+    .header-content .header-content-inner a:hover {
+      color: #7fdbff; }
   .header-content .header-content-inner p {
     font-weight: 300;
     color: rgba(255, 255, 255, 0.7);
@@ -54,15 +69,29 @@ hr {
 .save {
   float: right; }
 
+.profile div {
+  padding: 3em; }
+.profile li {
+  margin: 1.2em 0; }
+.profile h1,
+.profile h2,
+.profile h3 {
+  margin: 0 0 24px 0;
+  font-weight: 600; }
+.profile .github {
+  content: url("images/GitHub-Mark.png"); }
+.profile .slideshare {
+  content: url("images/SS_Logo.png"); }
+.profile .email {
+  content: url("images/email.png"); }
+.profile .restrictedzone {
+  width: 32px;
+  content: url("images/restrictedzone.jpeg"); }
+
 .container {
   padding: 60px 0; }
   .container h1 {
     margin: 0 0 0.6em 0; }
-  .container a {
-    color: #F05F40; }
-  .container a:hover {
-    color: #7fdbff;
-    text-decoration: none; }
   .container .excerpt {
     font-size: 80%;
     line-height: 1.6em;
@@ -73,13 +102,6 @@ hr {
   position: relative;
   width: 100%;
   margin: 0; }
-  .post_layout a, .post a, .comment a,
-  .comment_form a, .post_form a {
-    color: #F05F40; }
-  .post_layout a:hover, .post a:hover, .comment a:hover,
-  .comment_form a:hover, .post_form a:hover {
-    color: #7fdbff;
-    text-decoration: none; }
   .post_layout pre, .post pre, .comment pre,
   .comment_form pre, .post_form pre {
     font-size: 0.8em;

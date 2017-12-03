@@ -1,9 +1,5 @@
 @import base
 
-
-$sup_margin: 24px 0 0 0
-$sub_margin: 0 0 24px 0
-
 hr
   margin: $sup_margin
   clear: right
@@ -16,29 +12,40 @@ hr
   -moz-osx-font-smoothing: grayscale
 
 
+// nav
+nav
+  .navbar-brand
+    color: $theme-primary
+    font-weight: 700
+    &:hover,
+    &:focus
+      color: darken($theme-primary, 10%)
+
 // header
 .header-content
   width: 100%
-  background: url('header.jpg') center
+  background: url('images/header.jpg') center
   background-size: cover
   position: relative
   text-align: center
   padding: 100px 15px 100px
 
-  a
-    color: white
-
-  a:hover
-    color: #7fdbff
-    text-decoration: none
+  .subtitle
+    margin: $sup_margin
+    font-family: $coding
 
   .header-content-inner
-    h1,
-    h2
+    h1
+      font-size: 3em
       font-weight: 700
       margin-top: 0
       margin-bottom: 0
       text-shadow: 1px 1px 2px black, 0 0 12px #FAF5E1, 0 0 2px darkblue
+
+    a
+      color: white
+      &:hover
+        color: $hover-color
 
     p
       font-weight: 300
@@ -61,6 +68,34 @@ hr
 .save
   float: right
 
+// profile
+.profile
+  div
+    padding: 3em
+
+  li
+    margin: 1.2em 0
+
+  h1,
+  h2,
+  h3
+    margin: $sub_margin
+    font-weight: 600
+
+  .github
+    content: url("images/GitHub-Mark.png")
+
+  .slideshare
+    content: url("images/SS_Logo.png")
+
+  .email
+    content: url("images/email.png")
+
+  .restrictedzone
+    width: 32px
+    content: url("images/restrictedzone.jpeg")
+
+
 
 // list
 .container
@@ -68,13 +103,6 @@ hr
 
   h1
     margin: 0 0 .6em 0
-
-  a
-    color: #F05F40
-
-  a:hover
-    color: #7fdbff
-    text-decoration: none
 
   .excerpt
     font-size: 80%
@@ -86,13 +114,6 @@ hr
   position: relative
   width: 100%
   margin: 0
-
-  a
-    color: #F05F40
-
-  a:hover
-    color: #7fdbff
-    text-decoration: none
 
   pre
     font-size: 0.8em

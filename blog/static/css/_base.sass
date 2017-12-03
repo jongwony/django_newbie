@@ -2,7 +2,10 @@ $sans-serif: 'Open Sans', 'Helvetica Neue', Arial, sans-serif
 $serif: 'Merriweather', 'Helvetica', Arial, sans-serif
 $coding: Monaco, Menlo, Consolas, monospace
 $nanum-pen: 'Nanum Pen Script'
-
+$sup_margin: 24px 0 0 0
+$sub_margin: 0 0 24px 0
+$theme-primary: #F05F40
+$hover-color: #7fdbff
 
 html,
 body,
@@ -13,3 +16,10 @@ ol
   margin: 0
   padding: 0
   font-family: $sans-serif
+  list-style-image: url('images/sqorange.gif')
+
+a
+  color: $theme-primary
+  &:hover
+    text-decoration: none
+    color: $hover-color

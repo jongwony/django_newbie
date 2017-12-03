@@ -30,3 +30,9 @@ $('.gitribbon').append('<img style="position: fixed; top: 50px; right: 0; border
 // form placeholder
 $('#id_author').attr({'placeholder': 'ID'});
 $('#id_text').attr({'placeholder': 'Comment'});
+
+
+// profile 6 grid
+$('.profile div').each(function () {
+    $(this).attr({'class': 'col-md-6'})
+});
